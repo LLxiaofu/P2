@@ -24,47 +24,45 @@ public class Dialogadd extends JDialog implements ActionListener {
 	
 
 	
-	private gldBeispiel mainframe ; //°Ñgldb×÷ÎªÒ»¸öÊôĞÔ  ¹©ÏÂÃæ·½·¨ÒıÓÃ
+	private gldBeispiel mainframe ; //æŠŠgldbä½œä¸ºä¸€ä¸ªå±æ€§  ä¾›ä¸‹é¢æ–¹æ³•å¼•ç”¨
 
 	
-    private String[] texte = { "true", "false" }; //cboxÖĞµÄÁ½¸öÑ¡Ïî
+    private String[] texte = { "true", "false" }; //cboxä¸­çš„ä¸¤ä¸ªé€‰é¡¹
 	
 	
-	private JLabel Num = new JLabel ("Nummer"); //ĞÂ½¨ËÄ¸ö±êÇ©
+	private JLabel Num = new JLabel ("Nummer"); 
 	private JLabel Name = new JLabel ("Name");
 	private JLabel Preis = new JLabel ("Preis");
 	private JLabel Lage = new JLabel ("Lage");
 	
-	private JTextField tfnum = new JTextField (10);  //ĞÂ½¨Èı¸öÎÄ±¾¿ò
+	private JTextField tfnum = new JTextField (10);  
 	private JTextField tfnam = new JTextField (10);
 	private JTextField tfpre = new JTextField (10);
 	
-	private JComboBox<String> cbox	= new JComboBox<String> (texte); //ĞÂ½¨Ò»¸öÓĞ¡°true¡±ºÍ¡°false¡±Á½¸öÑ¡ÏîµÄcbox
+	private JComboBox<String> cbox	= new JComboBox<String> (texte); 
 	
-	private JButton neubt1 = new JButton ("Add");      //ĞÂ½¨Á½¸ö°´Å¥
+	private JButton neubt1 = new JButton ("Add");     
 	private JButton neubt2 = new JButton ("Abbrechen");
 	
-	public Dialogadd(Window parent, String title , gldBeispiel a ) { //¹¹ÔìÆ÷
-		//Window parent ÓÃÀ´È·¶¨¶Ô»°¿òÔÚÄÄ¸ö´°¿ÚÉÏÏÔÊ¾
-		//gldBeispiel a ¹©ÒıÓÃ
+	public Dialogadd(Window parent, String title , gldBeispiel a ) { 
 		
 		
 		this.mainframe = a ;
 		
-		tfnum.addActionListener(this); //×¢²á¶¯×÷¼àÌıÆ÷
+		tfnum.addActionListener(this); 
 		tfnam.addActionListener(this);
 		tfpre.addActionListener(this);
-		cbox.addActionListener(this); //cboxÊÇ·ñĞèÒª¼àÌıÆ÷£¿
+		cbox.addActionListener(this); 
 		
 		neubt1.addActionListener(this); 
 		neubt2.addActionListener(this);
 		
-		cbox.setSelectedIndex(0); //Éè¶¨cbox³õÊ¼Ñ¡ÏîÎª¡°true¡±
+		cbox.setSelectedIndex(0); 
 	
-		JPanel panel1 = new JPanel (new GridLayout(2,4,3,3)); //ĞÂ½¨Panel 2ĞĞ4ÁĞ ÉÏÏÂ¼ä¾àÎª3
-		JPanel panel2 = new JPanel (new GridLayout(1,2,3,3)); //ĞÂ½¨Panel 1ĞĞ2ÁĞ ÉÏÏÂ¼ä¾àÎª3
+		JPanel panel1 = new JPanel (new GridLayout(2,4,3,3)); 
+		JPanel panel2 = new JPanel (new GridLayout(1,2,3,3)); 
 		
-		panel1.add(Num);//°Ñ²¿¼ş·ÅÖÃÔÚPanelÉÏ
+		panel1.add(Num);
 		panel1.add(Name);
 		panel1.add(Preis);
 		panel1.add(Lage);
@@ -77,30 +75,30 @@ public class Dialogadd extends JDialog implements ActionListener {
 		panel2.add(neubt1);
 		panel2.add(neubt2);
 	
-		setLayout (new BorderLayout ()); //Éè¶¨¶Ô»°¿ò´°¿Ú²¼¾ÖÎªBorderLayout
+		setLayout (new BorderLayout ()); 
 		
 		
-		this.getContentPane().add(panel2,BorderLayout.SOUTH); //°Ñpanel2·ÅÔÚÏÂ·½
-		this.getContentPane().add(panel1,BorderLayout.CENTER);//°Ñpanel1·ÅÔÚÉÏ·½£¨¿´ÆğÀ´
+		this.getContentPane().add(panel2,BorderLayout.SOUTH); 
+		this.getContentPane().add(panel1,BorderLayout.CENTER);
 		
 		this.setTitle(title);
 		
 		
 		
-		Point ownerPosition = parent.getLocation();    //Ê¹¶Ô»°¿ò´°¿Úµ¯³öÊ±ÔÚÖ÷´°¿ÚÏà¶ÔÖĞ¼äµÄµØ·½
+		Point ownerPosition = parent.getLocation();    
 		setLocation (ownerPosition.x+200, ownerPosition.y+300);
 		
-		pack();  //Ê¹ËùÓĞ²¿¼ş¶¼Îª×îºÏÊÊµÄ´óĞ¡
+		pack();
 		
-		setVisible (true); //Ê¹´°¿Ú¿É¼û
+		setVisible (true); 
 		
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		if(arg0.getSource().equals(neubt1)) {  //Ìí¼ÓĞÂÊı¾İ
+		if(arg0.getSource().equals(neubt1)) {  
 			addneu () ;
         }
-		if(arg0.getSource().equals(neubt2)) { //ÍË³ö¶Ô»°¿ò´°¿Ú
+		if(arg0.getSource().equals(neubt2)) { 
 			System.out.println("exit");
 			setVisible (false);
         }
@@ -110,8 +108,8 @@ public class Dialogadd extends JDialog implements ActionListener {
 private boolean inputOKnum (String text) {
 		
 		int zahl = Integer.parseInt (text);
-		return zahl <= 2147483647;	// true wenn zahl kleiner als 100. So soll es sein.
-	}                               //»¹ÒªĞŞ¸Ä
+		return zahl <= 2147483647;	
+	}                               
 	
 	
 	public void addneu () {
@@ -127,26 +125,26 @@ private boolean inputOKnum (String text) {
 				tflag.setBackground(new Color(250, 150, 150));
 			
 	
-		}*/  //»¹ÒªĞŞ¸Ä
+		}*/  
 		//else {
 		 
 		
-            int  num = Integer.parseInt(tfnum.getText());      //»ñÈ¡ÔÚÎÄ±¾¿òÖĞÊäÈëµÄÊı¾İ
+            int  num = Integer.parseInt(tfnum.getText());     
 			String name = tfnam.getText() ;
 			double preis = Double.parseDouble(tfpre.getText());
 			boolean lage ;
-			int index = cbox.getSelectedIndex();               //»ñÈ¡ÔÚcboxÖĞÑ¡ÔñµÄÑ¡Ïî
+			int index = cbox.getSelectedIndex();               
 			   if(index == 0)
 				   lage = true ;
 			   else
 				   lage = false ;
-		    Ware zwischenwert = new Ware (name,num,lage,preis) ;   //°ÑÕâĞ©Êı¾İ·Åµ½Ò»¸öÉÌÆ·Êı¾İÀï
+		    Ware zwischenwert = new Ware (name,num,lage,preis) ;  
 		    
-		    mainframe.warenforlist.add(zwischenwert);             //°ÑÕâ¸öÉÌÆ·Êı¾İ¼ÓÈëÉÌÆ·ArrayList 
+		    mainframe.warenforlist.add(zwischenwert);            
 		    
-		    mainframe.getGuilist().setWaren(mainframe.warenforlist); //Ë¢ĞÂÁĞ±íÏÔÊ¾ Ê¹ĞÂ¼ÒµÄÊı¾İÒ²ÏÔÊ¾ÔÚÁĞ±íÏÔÊ¾ÖĞ
+		    mainframe.getGuilist().setWaren(mainframe.warenforlist); 
 		 	    
-			setVisible (false);                                      //Ê¹¶Ô»°¿ò´°¿Ú²»¿É¼û£¨ÊÓ¾õÉÏ¹Ø±ÕÁË
+			setVisible (false);                                      
 		}
 	
 	
