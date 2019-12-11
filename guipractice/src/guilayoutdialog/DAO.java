@@ -69,7 +69,7 @@ public abstract class DAO {
 	 * Schreiben der Daten eines Objekts.
 	 * Muss von abgeleiteten Data Object Klassen implementiert werden.
 	 * 
-	 * @param obj Referenz auf Objekt das die Daten enth鋖t.
+	 * @param obj Referenz auf Objekt das die Daten enthält.
 	 * @throws IOException
 	 */
 	public abstract void write (Object obj) throws IOException; 
